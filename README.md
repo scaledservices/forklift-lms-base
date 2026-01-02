@@ -1,17 +1,66 @@
-Update 03 Aug 2025: Hey there! If you're using Tiptap V3, there's a small change you need to make to the RenderDescription component. I won't implement it here since I don't really want to update the packages, but essentially, you now need to import generateHTML from @tiptap/html/server and remove the "use client" directive.Here’s an example repo where I made the change:
-https://github.com/ski043/tiptap-editor-v3-change
+# forklift-lms-base
 
-Update: 29.06.2025 - Hey everyone! Part two was published two days ago and has a total length of 12 hours. I want to thank you all for supporting me and the channel. If you have any questions, just ping me on Discord or send me an email. Thanks, and enjoy your day! 🫶🏻
+This repository contains the **base LMS template code** originally derived from the Marshal LMS tutorial project. It serves as a **foundational scaffold** for extending into a full training and certification platform.
 
-Update: 24.06.2025 - Part two is almost finished 6 hours have alredy been edited. this will be a 20+ hours video.
+This is *not yet* a fully customized training system; instead, it contains a functional LMS structure that supports courses, lessons, admin tools, user accounts, and payment integration foundations.
 
-Hey everyone 👋
+---
 
-This is the repo for the Marshal-LMS video.
-The full version of the code will be released this Tuesday when Part Two goes live.
-If you need early access for any reason (e.g. XYZ), feel free to email me: jan@marshalcode.com
+## Current Project Overview
 
-Thanks for supporting the channel —
-now enjoy the video!
+This codebase is a **full-stack Learning Management System scaffold** built with:
 
-– Jan
+- **Next.js (App Router)**
+- **TypeScript**
+- **Prisma ORM**
+- **Stripe integration scaffold**
+- **React UI components**
+
+It implements basic LMS features rather than a complete, training-specific application.
+
+### Key Capabilities (as currently implemented)
+
+#### **Authentication**
+- Email-based login pages
+- Auth API routes
+- Role guards using middleware
+
+#### **Public Pages**
+- Course catalog
+- Landing pages
+- Public UI components
+
+#### **Admin Dashboards**
+- Course creation & editing
+- Lesson management
+- Dashboard statistics views
+
+#### **Learner Dashboard**
+- Enrolled course list
+- Lesson navigation
+- Progress tracking
+
+#### **Payments (Stripe)**
+- Stripe checkout webhook route (`/api/webhook/stripe`)
+- Payment success & cancel pages
+
+#### **File Upload Support**
+- S3 compatible upload/delete API endpoints
+- File uploader UI components
+
+---
+
+## Repository Structure (High Level)
+
+```plaintext
+app/
+  (auth)/        Authentication UI and routes
+  (public)/      Public pages and course catalog
+  admin/         Admin course/curriculum management
+  dashboard/     Learner-focused course progress area
+  api/           Backend logic (auth, uploads, webhooks)
+components/      Shared UI components
+hooks/           Reusable React hooks
+lib/             Core utilities (auth, DB, Stripe, environment)
+prisma/          Database schema
+public/          Static assets
